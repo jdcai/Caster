@@ -16,13 +16,13 @@ class ChromeRule(MappingRule):
         "(new incognito window | incognito)":
             R(Key("cs-n")),
         "new tab [<n>]|tab new [<n>]":
-            R(Key("c-t") * Repeat(extra="n")),
+            R(Key("c-t")),
         "reopen tab [<n>]|tab reopen [<n>]":
-            R(Key("cs-t")) * Repeat(extra="n"),
+            R(Key("cs-t")),
         "close tab [<n>]|tab close [<n>]":
-            R(Key("c-w")) * Repeat(extra='n'),
-        "win close|close all tabs":
-            R(Key("cs-w")),
+            R(Key("c-w")),
+        # "win close|close all tabs":
+            # R(Key("cs-w")),
         "(next|forward) tab [<n>]|tab (right|sauce) [<n>]":
             R(Key("c-tab")) * Repeat(extra="n"),
         "(back|previous) tab [<n>]|tab (left|lease) [<n>]":
@@ -88,12 +88,12 @@ class ChromeRule(MappingRule):
             R(Key("cs-del")),
         "[show] developer tools":
             R(Key("cs-i")),
-        "checkout [this] pull request [locally]":
-            R(Function(github_automation.github_checkoutupdate_pull_request, new=True)),
-        "update [this] pull request [locally]":
-            R(Function(github_automation.github_checkoutupdate_pull_request, new=False)),
-        "IRC identify":
-            R(Text("/msg NickServ identify PASSWORD")),
+        # "checkout [this] pull request [locally]":
+            # R(Function(github_automation.github_checkoutupdate_pull_request, new=True)),
+        # "update [this] pull request [locally]":
+            # R(Function(github_automation.github_checkoutupdate_pull_request, new=False)),
+        # "IRC identify":
+            # R(Text("/msg NickServ identify PASSWORD")),
         "tab <m>|<nth> tab":
             R(Key("c-%(m)s%(nth)s")),
         "last tab":

@@ -88,8 +88,8 @@ class Navigation(MergeRule):
         #     R(Function(text_utils.master_text_nav)), # this is now implemented below
         "shift click":
             R(Key("shift:down") + Mouse("left") + Key("shift:up")),
-        "stoosh [<nnavi500>]":
-            R(Function(navigation.stoosh_keep_clipboard), rspec="stoosh"),
+        "copy [<nnavi500>]":
+            R(Function(navigation.stoosh_keep_clipboard), rspec="copy"),
         "cut [<nnavi500>]":
             R(Function(navigation.cut_keep_clipboard), rspec="cut"),
         "spark [<nnavi500>] [(<capitalization> <spacing> | <capitalization> | <spacing>) [(bow|bowel)]]":
