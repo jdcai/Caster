@@ -107,7 +107,7 @@ class NavigationNon(MappingRule):
         Dictation("mim"),
         IntegerRefST("function_key", 1, 13),
         IntegerRefST("n", 1, 50),
-        IntegerRefST("nnavi500", 1, 500),
+        IntegerRefST("nnavi500", 1, 2000),
         Choice("time_in_seconds", {
             "super slow": 5,
             "slow": 2,
