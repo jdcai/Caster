@@ -78,6 +78,8 @@ class ChromeRule(MappingRule):
             R(Key("s-escape")),
         "(clear history|clear browsing data)":
             R(Key("cs-del")),
+        "[show] developer tools":
+            R(Key("cs-i")),
         # "checkout [this] pull request [locally]":
             # R(Function(github_automation.github_checkoutupdate_pull_request, new=True)),
         # "update [this] pull request [locally]":
