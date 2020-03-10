@@ -29,7 +29,7 @@ class VSCodeNonCcrRule(MappingRule):
         "<action> [line] <ln1> [by <ln2>]":
             R(Function(navigation.action_lines)),
 
-        "go back <n>":
+        "go back [<n>]":
             R(Key("a-left") * Repeat(extra='n')),
         "go forward [<n>]":
             R(Key("a-right")) * Repeat(extra="n"),
@@ -239,6 +239,10 @@ class VSCodeNonCcrRule(MappingRule):
             R(Key("s-pgdown")),
         "altar kick":
             R(Key("alt:down") + Mouse("left") + Key("alt:up")),
+        "next terminal":
+            R(Key("cs-j")),
+        "back terminal":
+            R(Key("cs-k")),
 
         # Collapsing
         "(fold | collapse) region":
