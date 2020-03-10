@@ -14,7 +14,7 @@ def double_text_punc_dict():
 
 
 def _inv_dtpb():
-    return {v: k for k, v in double_text_punc_dict().items()}
+    return {v: k for k, v in double_text_punc_dict().iteritems()}
 
 
 def text_punc_dict():
@@ -35,8 +35,8 @@ def text_punc_dict():
         "modulo":                                             "%",
         "ampersand":                                          "&",
         "apostrophe | single quote | chicky":                 "'",
-        "left " + _id["()"]:                                  "(",
-        "right " + _id["()"]:                                 ")",
+        "long " + _id["()"]:                                  "(",
+        "ring " + _id["()"]:                                 ")",
         "starling":                                           "*",
         "plus":                                               "+",
         comma:                                                ",",
@@ -45,22 +45,22 @@ def text_punc_dict():
         "slash":                                              "/",
         "deckle":                                             ":",
         "semper":                                             ";",
-        "[is] less than | left " + _id["<>"]:                 "<",
+        "[is] less than | long " + _id["<>"]:                 "<",
         "[is] less [than] [or] equal [to]":                  "<=",
         "equals":                                             "=",
         "[is] equal to":                                     "==",
-        "[is] greater than | right " + _id["<>"]:             ">",
+        "[is] greater than | ring " + _id["<>"]:             ">",
         "[is] greater [than] [or] equal [to]":               ">=",
         "questo":                                             "?",
         "(atty | at symbol)":                                 "@",
-        "left " + _id["[]"]:                                  "[",
+        "long " + _id["[]"]:                                  "[",
         "backslash":                                         "\\",
-        "right " + _id["[]"]:                                 "]",
+        "ring " + _id["[]"]:                                 "]",
         "carrot":                                             "^",
         "underscore":                                         "_",
         "ticky | ((left | right) " + _id["``"] + " )":        "`",
-        "left " + _id["{}"]:                                  "{",
+        "long " + _id["{}"]:                                  "{",
         "pipe (sim | symbol)":                                "|",
-        "right " + _id["{}"]:                                 "}",
+        "ring " + _id["{}"]:                                 "}",
         "tilde":                                              "~",
     }
