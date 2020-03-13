@@ -95,6 +95,14 @@ class NavigationNon(MappingRule):
             R(Key("c-w/20"))*Repeat(extra="n"),
         "elite translation <text>":
             R(Function(alphabet_support.elite_text)),
+		"auto":
+			R(Function(navigation.middle_click, nexus=_NEXUS) + Mouse("<0, 25>")),
+		"auto up":
+			R(Function(navigation.middle_click, nexus=_NEXUS) + Mouse("<0, -25>")),
+		"mouse down":
+			Mouse("<0, 10>"),
+		"mouse up":
+			Mouse("<0, -10>"),
     }
 
     extras = [
