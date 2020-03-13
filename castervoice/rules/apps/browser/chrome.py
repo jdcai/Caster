@@ -132,7 +132,35 @@ class ChromeRule(MappingRule):
         "step into":
             R(Key("f11")),
         "step out":
-            R(Key("s-f11"))
+            R(Key("s-f11")),
+            
+		#custom
+		"reddit home": 
+			R(Key("c-l") + Pause("10") + Text("reddit.com/hot") + Key("enter")),
+		"reddit": 
+			R(Key("c-l") + Pause("10") + Text("reddit.com/r/popular") + Key("enter")),
+		"expand":
+			R(Key("x")),
+		"next post [<n2>]":
+			R(Key("j"))*Repeat(extra="n2"),
+		"back post [<n2>]":
+			R(Key("k"))*Repeat(extra="n2"),
+		"next comment":
+			R(Key("s-j")),
+		"back comment":
+			R(Key("s-k")),
+		"top comment":
+			R(Key("t")),
+		"sub reddit":
+			R(Key("g") + Pause("5") + Key("s-f")),
+		"youtube": 
+			R(Key("c-l") + Pause("10") + Text("youtube.com") + Key("enter")),
+		"youtube sub":
+			R(Key("c-l") + Pause("10") + Text("https://www.youtube.com/feed/subscriptions") + Key("enter")),
+		"open twitch": 
+			R(Key("c-l") + Pause("10") + Text("twitch.tv") + Key("enter")),
+		"twitter": 
+			R(Key("c-l") + Pause("10") + Text("twitter.com") + Key("enter")),
     }
     extras = [
         Dictation("text"),
@@ -147,9 +175,10 @@ class ChromeRule(MappingRule):
                 "eighth": "8",
             }),
         IntegerRefST("n", 1, 100),
-        IntegerRefST("m", 1, 10)
+        IntegerRefST("m", 1, 10),
+		IntegerRefST("n2", 1, 10)
     ]
-    defaults = {"n": 1, "m":"", "nth": "", "text": ""}
+    defaults = {"n": 1, "m":"", "nth": "", "text": "", "n2":1}
 
 
 def get_rule():
