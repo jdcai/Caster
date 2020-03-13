@@ -96,9 +96,9 @@ class NavigationNon(MappingRule):
         "elite translation <text>":
             R(Function(alphabet_support.elite_text)),
 		"auto":
-			R(Function(navigation.middle_click, nexus=_NEXUS) + Mouse("<0, 25>")),
+			R(Function(navigation.middle_click) + Mouse("<0, 25>")),
 		"auto up":
-			R(Function(navigation.middle_click, nexus=_NEXUS) + Mouse("<0, -25>")),
+			R(Function(navigation.middle_click) + Mouse("<0, -25>")),
 		"mouse down":
 			Mouse("<0, 10>"),
 		"mouse up":
