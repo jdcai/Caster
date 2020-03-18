@@ -121,6 +121,8 @@ class ChromeRule(MappingRule):
             R(Key("a-f/20, l, e/15, enter")),
         "more tools":
             R(Key("a-f/5, l")),
+		"bat [<d>] [plus] [<n3>]":
+			R(Text("/r d%(d)s+%(n3)s") + Key("enter"))
     }
     extras = [
         Choice("nth", {
@@ -134,9 +136,12 @@ class ChromeRule(MappingRule):
                 "eighth": "8",
             }),
         IntegerRefST("n", 1, 100),
-        IntegerRefST("m", 1, 10)
+        IntegerRefST("m", 1, 10),
+		IntegerRefST("n2", 1, 10),
+		IntegerRefST("n3", 1, 10),
+		IntegerRefST("d", 1, 21)
     ]
-    defaults = {"n": 1, "m":"", "nth": ""}
+    defaults = {"n": 1, "m":"", "nth": "", "n2":1, "d":20, "n3":0}
 
 
 def get_rule():
