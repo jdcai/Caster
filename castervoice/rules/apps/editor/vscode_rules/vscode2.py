@@ -103,7 +103,7 @@ class VSCodeNonCcrRule(MappingRule):
             R(Key("c-k, s")),
         "next tab [<n>]":
             R(Key("c-pgdown") * Repeat(extra='n')),
-        "previous tab [<n>]":
+        "(back | previous) tab [<n>]":
             R(Key("c-pgup") * Repeat(extra='n')),
         "close tab [<n>]":
             R(Key("c-f4/20") * Repeat(extra='n')),
