@@ -148,8 +148,8 @@ class ChromeRule(MappingRule):
 			R(Key("c-l") + Pause("10") + Text("twitch.tv") + Key("enter")),
 		"twitter": 
 			R(Key("c-l") + Pause("10") + Text("twitter.com") + Key("enter")),
-		"roll [<d>] plus <n2>":
-			R(Text("/r %(d)s+%(n2)s"))
+		"bat [<d>] [plus] [<n3>]":
+			R(Text("/r d%(d)s+%(n3)s") + Key("enter"))
     }
     extras = [
         Choice("nth", {
@@ -165,9 +165,10 @@ class ChromeRule(MappingRule):
         IntegerRefST("n", 1, 100),
         IntegerRefST("m", 1, 10),
 		IntegerRefST("n2", 1, 10),
+		IntegerRefST("n3", 1, 10),
 		IntegerRefST("d", 1, 21)
     ]
-    defaults = {"n": 1, "m":"", "nth": "", "n2":1, "d":20}
+    defaults = {"n": 1, "m":"", "nth": "", "n2":1, "d":20, "n3":0}
 
 
 def get_rule():
