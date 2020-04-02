@@ -37,7 +37,7 @@ class GitHubDeskRule(MappingRule):
 
         "update from master": R(Key("cs-u")),
         "compare to branch": R(Key("cs-b")),
-        "merge into current [branch]": R(Key("cs-m")),
+        "merge branch": R(Key("cs-m")),
         "rebase branch": R(Key("cs-e")),
 
         "compare on github": R(Key("cs-c")),
