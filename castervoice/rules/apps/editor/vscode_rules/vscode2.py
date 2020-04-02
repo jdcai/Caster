@@ -282,6 +282,18 @@ class VSCodeNonCcrRule(MappingRule):
             R(Key("ca-j")),
         "mark next":
             R(Key("ca-l")),
+            
+        #npm
+        "npm":
+            R(Text("npm")),
+        "run install":
+            R(Text("npm i")),
+        "run review":
+            R(Text("npm run review")),
+        "run start":
+            R(Text("npm start")),
+        "max panel":
+            R(Key("ca-a")),
     }
     extras = [
         Dictation("text"),
