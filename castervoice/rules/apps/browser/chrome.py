@@ -67,14 +67,6 @@ class ChromeRule(MappingRule):
             R(Key("f11")),
         "(show|view) page source":
             R(Key("c-u")),
-        "resume":
-            R(Key("f8")),
-        "step over":
-            R(Key("f10")),
-        "step into":
-            R(Key("f11")),
-        "step out":
-            R(Key("s-f11")),
         "(duplicate tab|tab duple)":
             R(Key("a-d,a-c,c-t/15,c-v/15, enter")),
         "(duplicate window|win duple)":
@@ -87,8 +79,6 @@ class ChromeRule(MappingRule):
             R(Key("s-escape")),
         "(clear history|clear browsing data)":
             R(Key("cs-del")),
-        "[show] developer tools":
-            R(Key("cs-i")),
         # "checkout [this] pull request [locally]":
             # R(Function(github_automation.github_checkoutupdate_pull_request, new=True)),
         # "update [this] pull request [locally]":
@@ -122,8 +112,29 @@ class ChromeRule(MappingRule):
             R(Key("a-f/20, l, e/15, enter")),
         "more tools":
             R(Key("a-f/5, l")),
+        
+        # Developer Tools
+        "[show] developer tools":
+            R(Key("cs-i")),
+        "(next|forward) panel":
+            R(Key("c-]")),
+        "(back|previous) panel":
+            R(Key("c-[")),
+        "inspect":
+            R(Key("cs-c")),
+        "open file [<text>]":
+            R(Key("c-p")  + Text("%(text)s")),
+        "resume":
+            R(Key("f8")),
+        "step over":
+            R(Key("f10")),
+        "step into":
+            R(Key("f11")),
+        "step out":
+            R(Key("s-f11")),
     }
     extras = [
+        Dictation("text"),
         Choice("nth", {
                 "first": "1",
                 "second": "2",
@@ -137,7 +148,7 @@ class ChromeRule(MappingRule):
         IntegerRefST("n", 1, 100),
         IntegerRefST("m", 1, 10)
     ]
-    defaults = {"n": 1, "m":"", "nth": ""}
+    defaults = {"n": 1, "m":"", "nth": "", "text": ""}
 
 
 def get_rule():
