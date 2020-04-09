@@ -1,4 +1,4 @@
-from dragonfly import Repeat, Pause, Function, Choice, MappingRule
+from dragonfly import Repeat, Pause, Function, Choice, MappingRule, Dictation
 
 from castervoice.lib.actions import Key, Mouse, Text
 
@@ -130,7 +130,7 @@ class ChromeRule(MappingRule):
         "step into":
             R(Key("f11")),
         "step out":
-            R(Key("s-f11")),
+            R(Key("s-f11"))
     }
     extras = [
         Dictation("text"),
