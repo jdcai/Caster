@@ -108,6 +108,8 @@ class NavigationNon(MappingRule):
 			Mouse("<0, 10>"),
 		"mouse up":
 			Mouse("<0, -10>"),
+		"sun":
+			R(Key("a-n"))
     }
 
     extras = [

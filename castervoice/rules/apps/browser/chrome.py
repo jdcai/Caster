@@ -161,8 +161,13 @@ class ChromeRule(MappingRule):
 			R(Key("c-l") + Pause("10") + Text("twitch.tv") + Key("enter")),
 		"twitter": 
 			R(Key("c-l") + Pause("10") + Text("twitter.com") + Key("enter")),
+		"bat <m> delta [<d>] [plus] [<n3>]":
+			R(Text("/r %(m)sd%(d)s+%(n3)s") + Key("enter")),
 		"bat [<d>] [plus] [<n3>]":
-			R(Text("/r d%(d)s+%(n3)s") + Key("enter"))
+			R(Text("/r d%(d)s+%(n3)s") + Key("enter")),
+		"shield":
+			R(Text("/r 2d6") + Key("enter")),
+		
     }
     extras = [
         Dictation("text"),
