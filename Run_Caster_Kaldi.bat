@@ -4,6 +4,5 @@ echo Runnig Kaldi from Dragonfly CLI
 set currentpath=%~dp0
 
 TITLE Caster: Status Window
-python -m dragonfly load _*.py --engine kaldi  --no-recobs-messages
 
-pause 1
+python kaldi_module_loader_plus.py
