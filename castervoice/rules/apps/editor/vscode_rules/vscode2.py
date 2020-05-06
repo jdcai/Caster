@@ -218,6 +218,8 @@ class VSCodeNonCcrRule(MappingRule):
             R(Key("s-f5")),
         "continue":
             R(Key("f5"), rdescript="VS Code: Start/Continue"),
+        "restart":
+            R(Key("cs-f5")),
         "(show hover|mouse hover|hover mouse)":
             R(Key("c-k, c-i"),
               rdescript="Show the little box as if you are hovering your mouse over the place where the cursor (As opposed to the mouse pointer) currently is"
@@ -301,7 +303,9 @@ class VSCodeNonCcrRule(MappingRule):
         "run test":
             R(Text("ng test --codeCoverage=false")),
         "run code test":
-            R(Text("ng test")),
+            R(Text("npm test")),
+        "run debug test":
+            R(Text("npm run test:debug")),
         "max panel":
             R(Key("ca-a")),
     }
