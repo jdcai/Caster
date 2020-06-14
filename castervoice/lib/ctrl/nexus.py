@@ -108,7 +108,7 @@ class Nexus:
         return DetailsValidationDelegator(
             CCRDetailsValidator(),
             AppCCRDetailsValidator(),
-            NonCCRDetailsValidator()
+            NonCCRDetailsValidator(),
         )
 
     @staticmethod

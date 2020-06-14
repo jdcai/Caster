@@ -41,11 +41,12 @@ class BringRule(BaseSelfModifyingRule):
     # Paths
     _terminal_path = settings.settings(["paths", "TERMINAL_PATH"])
     _explorer_path = str(Path("C:\\Windows\\explorer.exe"))
+    _source_dir =  Path(settings.SETTINGS["paths"]["BASE_PATH"]).parents[0]
     _user_dir = settings.SETTINGS["paths"]["USER_DIR"]
-    _home_dir = str(Path.home())
+    _home_dir = Path.home()
 
-    def __init__(self):
-        super(BringRule, self).__init__(settings.settings(["paths", "SM_BRINGME_PATH"]))
+    def __init__(self, **kwargs):
+        super(BringRule, self).__init__(settings.settings(["paths", "SM_BRINGME_PATH"]), **kwargs)
 
     def _initialize(self):
         """
@@ -117,7 +118,7 @@ class BringRule(BaseSelfModifyingRule):
         if launch_type == "program":
             path = utilities.get_active_window_path()
             if not path:
-                # dragonfly.get_engine().speak("program not detected")
+                # dragonfly.get_current_engine().speak("program not detected")
                 printer.out("Program path for bring me not found ")
         elif launch_type == 'file':
             files = utilities.get_selected_files(folders=False)
@@ -207,18 +208,19 @@ class BringRule(BaseSelfModifyingRule):
             # Caster Support
             "dragonfly gitter": "https://gitter.im/dictation-toolbox/dragonfly",
             "caster gitter": "https://gitter.im/dictation-toolbox/Caster",
-            "caster discord": "https://discord.gg/9eAAsCJr",
+            "caster discord": "https://discord.gg/9eAAsCJ",
 
             # General URLs
             "google": "https://www.google.com",
         },
         "folder": {
             # OS folder Navigation
-            "libraries | home": _home_dir,
+            "libraries | home": str(Path(_home_dir)),
             "my pictures": str(Path(_home_dir).joinpath("Pictures")),
             "my documents": str(Path(_home_dir).joinpath("Documents")),
 
             # Caster User Dir Navigation
+            "caster source": str(Path(_source_dir)),
             "caster user": str(Path(_user_dir)),
             "caster hooks": str(Path(_user_dir).joinpath("hooks")),
             "caster transformers": str(Path(_user_dir).joinpath("transformers")),
@@ -244,14 +246,14 @@ class BringRule(BaseSelfModifyingRule):
             "caster chain aliases file": str(Path(_user_dir).joinpath("data/sm_chain_aliases.toml")),
             "caster clipboard file": str(Path(_user_dir).joinpath("data/clipboard.json")),
             "caster record from history file": str(Path(_user_dir).joinpath("data/sm_history.toml")),
-            "caster log file": str(Path(_user_dir).joinpath("data/log.txt")),
+            "caster log file": str(Path(_user_dir).joinpath("log.txt")),
 
             # Simplified Transformer
             "caster transformer file": str(Path(_user_dir).joinpath("transformers/words.txt")),
         }
     }
 
-
 def get_rule():
-    details = RuleDetails(ccrtype=CCRType.SELFMOD, transformer_exclusion=True)
-    return BringRule, details
+    details = RuleDetails(name="bring me",
+                          transformer_exclusion=True)
+    return [BringRule, details]

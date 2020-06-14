@@ -1,6 +1,6 @@
 # Caster
 [![Travis Build Status](https://travis-ci.org/dictation-toolbox/Caster.svg?branch=master)](https://travis-ci.org/dictation-toolbox/Caster) [![Documentation Status](https://readthedocs.org/projects/caster/badge/?version=latest)](https://caster.readthedocs.io/en/latest/?badge=latest)
-[Caster](https://github.com/dictation-toolbox/Caster) is a collection of tools to control your computer by voice built upon the [Dragonfly](https://github.com/dictation-toolbox/dragonfly) framework. Caster gives you the power to control your computer by voice. Take control of your applications, games, and your mouse and keyboard to augment your workflow for every day activities or as an accessibility tool to develop applications entirely by voice. 
+	[Caster](https://github.com/dictation-toolbox/Caster) gives you the power to control your computer by voice. Take control of your applications, games, mouse and keyboard to augment your workflow for every day activities or as an accessibility tool to develop applications entirely by voice built upon the [Dragonfly](https://github.com/dictation-toolbox/dragonfly) framework. 
 
 **Note for PyPi Users**: The PIP package is (_Alpha_). Do not use the PIP install. Alternatively use this [Master Branch](https://github.com/dictation-toolbox/Caster) with classic install for the best feature experience.
 
@@ -68,14 +68,14 @@
 
   - Python, Java, Bash, C++, C#, Rust, Go, HTML, CSS, JavaScript, SQL, Dart, Latex , Matlab, R, Prolog, VHDL, and Haxe
 - [Editing and Navigation](https://github.com/dictation-toolbox/Caster/blob/master/CasterQuickReference.pdf)
-- Four additional [mouse navigation modes](https://caster.readthedocs.io/en/latest/readthedocs/Caster_Commands/Mouse/): curse, sudoku, douglas, legion, and rainbow - [Demo](https://www.youtube.com/watch?v=UISjQBMmQ-I&feature=youtu.be)
+- Five additional [mouse navigation modes](https://caster.readthedocs.io/en/latest/readthedocs/Caster_Commands/Mouse/): curse, sudoku, douglas, legion, and rainbow - [Demo](https://www.youtube.com/watch?v=UISjQBMmQ-I&feature=youtu.be)
   - [Text navigation commands](https://caster.readthedocs.io/en/latest/readthedocs/Caster_Commands/Text_Manipulation/) - [Demo](https://www.youtube.com/watch?v=xj8IzNlfM70), Text formatting commands
   - Alphabet, numbers, punctuation input commands
   - Commands to interact with generic File Dialogues.
   
 - Utilize Powerful Commands
 
-  - "[Alias](https://caster.readthedocs.io/en/latest/readthedocs/Third-party_Integrations/Aenea/)" Commands - on-the-fly commands created by highlighting stuff
+  - "[Alias](https://caster.readthedocs.io/en/latest/readthedocs/Caster_Commands/Alias/)" Commands - on-the-fly commands created by highlighting stuff
   - "[Record From History](https://caster.readthedocs.io/en/latest/readthedocs/Caster_Commands/Record_Macros/)" - turn previously spoken commands into a voice macro 
 
 - Third-party Integrations

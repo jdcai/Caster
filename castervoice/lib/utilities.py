@@ -16,7 +16,7 @@ import traceback
 from subprocess import Popen
 import tomlkit
 
-from dragonfly import Key, Pause, Window, get_engine
+from dragonfly import Key, Pause, Window, get_current_engine
 
 from castervoice.lib.clipboard import Clipboard
 from castervoice.lib import printer
@@ -35,9 +35,8 @@ finally:
     from castervoice.lib import settings, printer
 
 
-# ToDo: move functions that manipulate or retrieve information from Windows to `window_mgmt_support` in navigation_rules.
-
-# ToDo: Implement Optional exact title matching for `get_matching_windows` in Dragonfly
+# TODO: Move functions that manipulate or retrieve information from Windows to `window_mgmt_support` in navigation_rules.
+# TODO: Implement Optional exact title matching for `get_matching_windows` in Dragonfly
 def window_exists(windowname=None, executable=None):
     if Window.get_matching_windows(title=windowname, executable=executable):
         return True
@@ -195,21 +194,21 @@ def remote_debug(who_called_it=None):
               " called utilities.remote_debug() but the debug server wasn't running.")
 
 def reboot():
-    # ToDo: Save engine arguments elsewhere and retrievesfor reboot. Allows for user-defined arguments.
+    # TODO: Save engine arguments elsewhere and retrieves for reboot. Allows for user-defined arguments.
     popen_parameters = []
-    engine = get_engine()
-    if engine._name == 'kaldi':
+    engine = get_current_engine()
+    if engine.name == 'kaldi':
         engine.disconnect()
-        Popen(['python', '-m', 'dragonfly', 'load-directory', '.', '--engine kaldi',  '--no-recobs-messages'])
-    if engine._name == 'sapi5inproc':
+        Popen([sys.executable, '-m', 'dragonfly', 'load', '_*.py', '--engine', 'kaldi',  '--no-recobs-messages'])
+    if engine.name == 'sapi5inproc':
         engine.disconnect()
-        Popen(['python', '-m', 'dragonfly', 'load', '--engine', 'sapi5inproc', '_*.py', '--no-recobs-messages'])
-    if engine._name in ["sapi5shared", "sapi5"]:
+        Popen([sys.executable, '-m', 'dragonfly', 'load', '--engine', 'sapi5inproc', '_*.py', '--no-recobs-messages'])
+    if engine.name in ["sapi5shared", "sapi5"]:
         popen_parameters.append(settings.SETTINGS["paths"]["REBOOT_PATH_WSR"])
         popen_parameters.append(settings.SETTINGS["paths"]["WSR_PATH"])
         printer.out(popen_parameters)
         Popen(popen_parameters)
-    if engine._name == 'natlink':
+    if engine.name == 'natlink':
         import natlinkstatus # pylint: disable=import-error
         status = natlinkstatus.NatlinkStatus()
         if status.NatlinkIsEnabled() == 1:
@@ -223,10 +222,10 @@ def reboot():
         else:
            # Natlink out-of-process
             engine.disconnect()
-            Popen(['python', '-m', 'dragonfly', 'load', '--engine', 'natlink', '_*.py', '--no-recobs-messages'])
+            Popen([sys.executable, '-m', 'dragonfly', 'load', '--engine', 'natlink', '_*.py', '--no-recobs-messages'])
 
 
-# ToDo: Implement default_browser_command Mac/Linux
+# TODO: Implement default_browser_command Mac/Linux
 def default_browser_command():
     if sys.platform.startswith('win'):
         if six.PY2:
@@ -262,11 +261,15 @@ def default_browser_command():
 
 
 def clear_log():
-    # Function to clear status window. 
+    # Function to clear status window.
     # Natlink status window not used an out-of-process mode.
-    # ToDo: window_exists utilized when engine launched through Dragonfly CLI via bat in future
+    # TODO: window_exists utilized when engine launched through Dragonfly CLI via bat in future
     try:
-        if get_engine()._name == 'natlink':
+        if sys.platform.startswith('win'):
+            clearcmd = "cls" # Windows OS
+        else:
+            clearcmd = "clear" # Linux
+        if get_current_engine().name == 'natlink':
             import natlinkstatus  # pylint: disable=import-error
             status = natlinkstatus.NatlinkStatus()
             if status.NatlinkIsEnabled() == 1:
@@ -276,17 +279,17 @@ def clear_log():
                 win32gui.SetWindowText(rt_handle, "")
             else:
                 if window_exists(windowname="Caster: Status Window"):
-                    os.system('clear')
+                    os.system(clearcmd)
         else:
             if window_exists(windowname="Caster: Status Window"):
-                os.system('clear')
+                os.system(clearcmd)
             else:
                 printer.out("clear_log: Not implemented with GUI")
     except Exception as e:
         printer.out(e)
 
 
-# ToDo: BringMe - Implement clipboard formats for Mac/Linux
+# TODO: BringMe - Implement clipboard formats for Mac/Linux
 def get_clipboard_formats():
     '''
     Return list of all data formats currently in the clipboard

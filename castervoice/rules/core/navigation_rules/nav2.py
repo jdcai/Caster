@@ -37,12 +37,8 @@ class NavigationNon(MappingRule):
             R(Key("cs-f")),
         "replace":
             R(Key("c-h")),
-        "(F to | F2)":
-            R(Key("f2")),
-        "(F six | F6)":
-            R(Key("f6")),
-        "(F nine | F9)":
-            R(Key("f9")),
+        "F<function_key>":
+            R(Key("f%(function_key)s")),
         "[show] context menu":
             R(Key("s-f10")),
         "lean":
@@ -99,11 +95,20 @@ class NavigationNon(MappingRule):
             R(Key("c-w/20"))*Repeat(extra="n"),
         "elite translation <text>":
             R(Function(alphabet_support.elite_text)),
+        "auto":
+			R(Function(navigation.middle_click) + Mouse("<0, 25>")),
+		"auto up":
+			R(Function(navigation.middle_click) + Mouse("<0, -25>")),
+		"mouse down":
+			Mouse("<0, 10>"),
+		"mouse up":
+			Mouse("<0, -10>"),
     }
 
     extras = [
         Dictation("text"),
         Dictation("mim"),
+        IntegerRefST("function_key", 1, 13),
         IntegerRefST("n", 1, 50),
         IntegerRefST("nnavi500", 1, 2000),
         Choice("time_in_seconds", {

@@ -5,7 +5,7 @@ master_text_nav shouldn't take strings as arguments - it should take ints, so it
 import six
 import subprocess
 import time
-from dragonfly import get_engine, monitors
+from dragonfly import get_current_engine, monitors
 from castervoice.lib import control, settings, utilities, textformat
 from castervoice.lib.actions import Key, Text, Mouse
 from castervoice.lib.clipboard import Clipboard
@@ -24,8 +24,9 @@ def initialize_clipboard():
 initialize_clipboard()
 
 
-def mouse_alternates(mode, monitor=1):
+def mouse_alternates(mode, monitor=1, rough=True):
     args = []
+
     if mode == "legion" and not utilities.window_exists(None, "legiongrid"):
         from castervoice.asynch.mouse.legion import LegionScanner
         r = monitors[int(monitor) - 1].rectangle
@@ -36,7 +37,7 @@ def mouse_alternates(mode, monitor=1):
             int(r.y) + int(r.dy) - 1
         ]
         ls = LegionScanner()
-        ls.scan(bbox)
+        ls.scan(bbox, rough)
         tscan = ls.get_update()
         args = [
             settings.settings(["paths", "PYTHONW"]),
@@ -133,7 +134,7 @@ def drop_keep_clipboard(nnavi500, capitalization, spacing):
         if key in _CLIP:
             text = _CLIP[key]
         else:
-            get_engine().speak("slot empty")
+            get_current_engine().speak("slot empty")
             text = None
     else:
         text = Clipboard.get_system_text()
@@ -221,13 +222,24 @@ def curse(direction, direction2, nnavi500, dokick):
         elif int(dokick) == 2:
             right_click()
 
+def previous_line(semi):
+    semi = str(semi)
+    Key("escape").execute()
+    time.sleep(0.05)
+    Key("end").execute()
+    time.sleep(0.05)
+    Text(semi).execute()
+    time.sleep(0.05)
+    Key("up").execute()
+    time.sleep(0.05)
+    Key("enter").execute()
 
 def next_line(semi):
     semi = str(semi)
     Key("escape").execute()
-    time.sleep(0.07)
+    time.sleep(0.05)
     Key("end").execute()
-    time.sleep(0.07)
+    time.sleep(0.05)
     Text(semi).execute()
     Key("enter").execute()
 

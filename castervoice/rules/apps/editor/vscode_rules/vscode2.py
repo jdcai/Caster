@@ -162,7 +162,13 @@ class VSCodeNonCcrRule(MappingRule):
         "next pane":
             R(Key("c-k, c-right")),
         "(prior | previous | un) pane":
-            R(Key("c-k, c-right")),
+            R(Key("c-k, c-left")),
+        "move tab left":
+            R(Key("ca-left"),
+            rdescript="VS Code: Move the current tab to the editor pane on the left."),
+        "move tab right":
+            R(Key("ca-right"),
+            rdescript="VS Code: Move the current tab to the editor pane on the right."),
         "shift group left":
             R(Key("c-k, left"),
               rdescript="VS Code: Shift Current Group of Tabs to the Left E.g. Swap with Pane to the Left"),
@@ -212,6 +218,8 @@ class VSCodeNonCcrRule(MappingRule):
             R(Key("s-f5")),
         "continue":
             R(Key("f5"), rdescript="VS Code: Start/Continue"),
+        "restart":
+            R(Key("cs-f5")),
         "(show hover|mouse hover|hover mouse)":
             R(Key("c-k, c-i"),
               rdescript="Show the little box as if you are hovering your mouse over the place where the cursor (As opposed to the mouse pointer) currently is"
@@ -292,6 +300,12 @@ class VSCodeNonCcrRule(MappingRule):
             R(Text("npm run review")),
         "run start":
             R(Text("npm start")),
+        "run test":
+            R(Text("ng test --codeCoverage=false")),
+        "run code test":
+            R(Text("npm test")),
+        "run debug test":
+            R(Text("npm run test:debug")),
         "max panel":
             R(Key("ca-a")),
     }

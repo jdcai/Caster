@@ -106,6 +106,8 @@ class Navigation(MergeRule):
             R(Key("home/5, s-end"), rspec="shackle"),
         "(tell | tau) <semi>":
             R(Function(navigation.next_line), rspec="tell dock"),
+        "(hark | heart) <semi>":
+            R(Function(navigation.previous_line), rspec="hark dock"),
         "duple [<nnavi50>]":
             R(Function(navigation.duple_keep_clipboard), rspec="duple"),
         "Kraken":
@@ -210,8 +212,8 @@ class Navigation(MergeRule):
         "space": "space"
     }
     button_dictionary_10 = {
-        "function {}".format(i): "f{}".format(i)
-        for i in range(1, 10)
+        "(F{}".format(i) + " | function {})".format(i) : "f{}".format(i)
+        for i in range(1, 13)
     }
     button_dictionary_10.update(caster_alphabet())
     button_dictionary_10.update(_tpd)
@@ -248,7 +250,7 @@ class Navigation(MergeRule):
             "(control | fly)": "c-", #TODO: make DRY
             "(shift | shin)": "s-",
             "alt": "a-",
-            "(control shift | que)": "cs-",
+            "(control shift | queue)": "cs-",
             "control alt": "ca-",
             "(shift alt | alt shift)": "sa-",
             "(control alt shift | control shift alt)": "csa-",  # control must go first
