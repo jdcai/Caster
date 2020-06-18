@@ -1,4 +1,4 @@
-from dragonfly import Repeat, Pause, Function, Choice, MappingRule
+from dragonfly import Repeat, Pause, Function, Choice, MappingRule, Dictation
 
 from castervoice.lib.actions import Key, Mouse, Text
 
@@ -25,7 +25,7 @@ class ChromeRule(MappingRule):
             # R(Key("cs-w")),
         "(next|forward) tab [<n>]|tab (right|sauce) [<n>]":
             R(Key("c-tab")) * Repeat(extra="n"),
-        "(back|previous) tab [<n>]|tab (left|lease) [<n>]":
+        "(back|previous) tab [<n>]":
             R(Key("cs-tab")) * Repeat(extra="n"),    
         "new tab that":
             R(Mouse("middle") + Pause("20") + Key("c-tab")),
@@ -66,14 +66,6 @@ class ChromeRule(MappingRule):
             R(Key("f11")),
         "(show|view) page source":
             R(Key("c-u")),
-        "resume":
-            R(Key("f8")),
-        "step over":
-            R(Key("f10")),
-        "step into":
-            R(Key("f11")),
-        "step out":
-            R(Key("s-f11")),
         "(duplicate tab|tab duple)":
             R(Key("a-d,a-c,c-t/15,c-v/15, enter")),
         "(duplicate window|win duple)":
@@ -121,6 +113,27 @@ class ChromeRule(MappingRule):
             R(Key("a-f/20, l, e/15, enter")),
         "more tools":
             R(Key("a-f/5, l")),
+        
+        # Developer Tools
+        "[show] developer tools":
+            R(Key("cs-i")),
+        "(next|forward) panel":
+            R(Key("c-]")),
+        "(back|previous) panel":
+            R(Key("c-[")),
+        "inspect":
+            R(Key("cs-c")),
+        "open file [<text>]":
+            R(Key("c-p")  + Text("%(text)s")),
+        "resume":
+            R(Key("f8")),
+        "step over":
+            R(Key("f10")),
+        "step into":
+            R(Key("f11")),
+        "step out":
+            R(Key("s-f11")),
+            
 		#custom
 		"reddit home": 
 			R(Key("c-l") + Pause("10") + Text("reddit.com/hot") + Key("enter")),
@@ -157,6 +170,7 @@ class ChromeRule(MappingRule):
 		
     }
     extras = [
+        Dictation("text"),
         Choice("nth", {
                 "first": "1",
                 "second": "2",
@@ -173,7 +187,7 @@ class ChromeRule(MappingRule):
 		IntegerRefST("n3", 1, 10),
 		IntegerRefST("d", 1, 21)
     ]
-    defaults = {"n": 1, "m":"", "nth": "", "n2":1, "d":20, "n3":0}
+    defaults = {"n": 1, "m":"", "nth": "", "text": "", "n2":1, "d":20, "n3":0}
 
 
 def get_rule():

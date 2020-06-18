@@ -327,6 +327,14 @@ def _get_defaults():
                 SYSTEM_INFORMATION["hidden console binary"],
         },
 
+        # Speech recognition engine settings
+        "engine": {
+            "default_engine_mode": False, 
+            "engine_mode": "normal",
+            "default_mic": False, 
+            "mic_mode": "on"
+        },
+
         # python settings
         "python": {
             "automatic_settings":
@@ -376,6 +384,7 @@ def _get_defaults():
             "print_rdescripts": True,
             "history_playback_delay_secs": 1.0,
             "legion_vertical_columns": 30,
+            "legion_downscale_factor": "auto",
             "use_aenea": False,
             "hmc": True,
             "ccr_on": True,

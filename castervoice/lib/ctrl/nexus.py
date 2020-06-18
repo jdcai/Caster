@@ -22,7 +22,6 @@ from castervoice.lib.ctrl.mgr.validation.details.ccr_app_validator import AppCCR
 from castervoice.lib.ctrl.mgr.validation.details.ccr_validator import CCRDetailsValidator
 from castervoice.lib.ctrl.mgr.validation.details.details_validation_delegator import DetailsValidationDelegator
 from castervoice.lib.ctrl.mgr.validation.details.non_ccr_validator import NonCCRDetailsValidator
-from castervoice.lib.ctrl.mgr.validation.details.function_context_validator import FunctionContextDetailsValidator
 from castervoice.lib.ctrl.mgr.validation.rules.mergerule_validator import IsMergeRuleValidator
 from castervoice.lib.ctrl.mgr.validation.rules.not_treerule_validator import NotTreeRuleValidator
 from castervoice.lib.ctrl.mgr.validation.rules.selfmod_validator import CCRSelfModifyingRuleValidator
@@ -33,7 +32,7 @@ from castervoice.lib.ctrl.mgr.grammar_manager import GrammarManager
 from castervoice.lib.ctrl.mgr.validation.rules.rule_validation_delegator import CCRRuleValidationDelegator
 from castervoice.lib.merge.ccrmerging2.ccrmerger2 import CCRMerger2
 from castervoice.lib.merge.ccrmerging2.merging.classic_merging_strategy import ClassicMergingStrategy
-
+from castervoice.lib.ctrl.mgr.engine_manager import EngineModesManager
 
 class Nexus:
     def __init__(self, content_loader):
@@ -80,9 +79,13 @@ class Nexus:
             self._content_loader, hooks_runner, rules_config, smrc, mapping_rule_maker,
             transformers_runner)
 
+        '''tracks engine grammar exclusivity and mic states -- TODO Grammar exclusivity should be managed through grammar manager'''
+        self._engine_modes_manager = EngineModesManager()
+
         '''ACTION TIME:'''
         self._load_and_register_all_content(rules_config, hooks_runner, transformers_runner)
         self._grammar_manager.initialize()
+        self._engine_modes_manager.initialize()
 
     def _load_and_register_all_content(self, rules_config, hooks_runner, transformers_runner):
         """
@@ -110,7 +113,6 @@ class Nexus:
             CCRDetailsValidator(),
             AppCCRDetailsValidator(),
             NonCCRDetailsValidator(),
-            FunctionContextDetailsValidator()
         )
 
     @staticmethod

@@ -24,6 +24,9 @@ A video demonstration of mouse commands is found [here](https://youtu.be/UISjQBM
     - `<direction>` can be _sauce_ (up), _dunce_ (down), _lease_ (left), or _ross_ (right).
 - Scroll mouse wheel: `scree <direction> [number_of_scrolls]`
     - `<direction>` can be _sauce_ (up) or _dunce_ (down).
+- Scroll mouse wheel continuously (until you say `cancel`): `zinc <direction> <scroll speed>`
+    - `<direction>` can be _sauce_ (up) or _dunce_ (down).
+    - `<scroll speed>` can be _super slow_, _slow_, _normal_, or _supefast_
 
 **Examples**:
 
@@ -131,13 +134,18 @@ Creates a grid of numbered 3 x 3 squares over the whole screen. A number is call
 
 **Usage**:
 
-- Invoke: `legion or legion [monitor_number]`
+- Invoke: `legion [<monitor_number>] [<rough_detailed>]`
+    - `<rough_detailed>` (optional) can be one of "rough" (default) or "detailed". "rough" can run a little faster depending on the system. "detailed" can be more accurate. Control the degree of downscaling done by "rough" using the user setting: `legion_downscale_factor`. 
 - Move to text area: `<number>`
 - Highlight one text area: `<number> (select | light)`
 - Highlight from one text area to another: `<number_1> (select | light | grab) <number_2>`
 
 **Examples**:
 
+- _legion 2_
+    - Runs legion on screen 2.
+- _legion detailed_
+    - Runs legion on screen 1 scanning with full resolution.
 - _76 select_
     - Selects from the left side to the right side of 76.
 - _76 select 100_
