@@ -302,9 +302,9 @@ class VSCodeNonCcrRule(MappingRule):
             R(Text("npm run review")),
         "run start":
             R(Text("npm start")),
-        "run test":
+        "run no code test":
             R(Text("ng test --codeCoverage=false")),
-        "run code test":
+        "run test":
             R(Text("npm test")),
         "run debug test":
             R(Text("npm run test:debug")),

@@ -16,6 +16,8 @@ class VSCodeCcrRule(MergeRule):
     mapping = {
         "[show] terminal":
             R(Key("c-backtick")),
+        "[show] debug console":
+            R(Key("cs-y")),
         # Note: If you get the bad grammar grammar too complex error, move some of these commands into the non-CCR rule
         # cursor/line navigation
         "scroll up [<n>]":
