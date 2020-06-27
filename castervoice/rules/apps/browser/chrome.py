@@ -136,9 +136,9 @@ class ChromeRule(MappingRule):
             
 		#custom
 		"reddit home": 
-			R(Key("c-l") + Pause("10") + Text("reddit.com/hot") + Key("enter")),
+			R(Key("c-l") + Pause("50") + Text("reddit.com/hot") + Key("enter")),
 		"reddit": 
-			R(Key("c-l") + Pause("10") + Text("reddit.com/r/popular") + Key("enter")),
+			R(Key("c-l") + Pause("50") + Text("reddit.com/r/popular") + Key("enter")),
 		"expand":
 			R(Key("x")),
 		"next post [<n2>]":
@@ -154,13 +154,13 @@ class ChromeRule(MappingRule):
 		"sub reddit":
 			R(Key("g") + Pause("5") + Key("s-f")),
 		"youtube": 
-			R(Key("c-l") + Pause("100") + Text("youtube.com") + Key("enter")),
+			R(Key("c-l") + Pause("50") + Text("youtube.com") + Key("enter")),
 		"youtube sub":
-			R(Key("c-l") + Pause("100") + Text("https://www.youtube.com/feed/subscriptions") + Key("enter")),
+			R(Key("c-l") + Pause("50") + Text("https://www.youtube.com/feed/subscriptions") + Key("enter")),
 		"open twitch": 
-			R(Key("c-l") + Pause("100") + Text("twitch.tv") + Key("enter")),
+			R(Key("c-l") + Pause("50") + Text("twitch.tv") + Key("enter")),
 		"twitter": 
-			R(Key("c-l") + Pause("100") + Text("twitter.com") + Key("enter")),
+			R(Key("c-l") + Pause("50") + Text("twitter.com") + Key("enter")),
 		"bat <m> delta [<d>] [plus] [<n3>]":
 			R(Text("/r %(m)sd%(d)s+%(n3)s") + Key("enter")),
 		"bat [<d>] [plus] [<n3>]":

@@ -250,9 +250,9 @@ class VSCodeNonCcrRule(MappingRule):
         "altar kick":
             R(Key("alt:down") + Mouse("left") + Key("alt:up")),
         "next terminal":
-            R(Key("cs-j")),
+            R(Key("as-j")),
         "back terminal":
-            R(Key("cs-k")),
+            R(Key("as-k")),
 
         # Collapsing
         "(fold | collapse) region":

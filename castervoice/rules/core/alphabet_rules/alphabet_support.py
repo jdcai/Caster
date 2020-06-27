@@ -18,7 +18,7 @@ def caster_alphabet():
         "kilo"    : "k",
         "look"    : "l",
         "Mike"    : "m",
-        "Novakeen": "n",
+        "near": "n",
         "oscar"   : "o",
         "prime"   : "p",
         "quench"  : "q",
