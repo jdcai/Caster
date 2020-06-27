@@ -176,8 +176,12 @@ class VSCodeNonCcrRule(MappingRule):
             R(Key("c-k, right"),
               rdescript="VS Code: Shift Current Group of Tabs to the Right E.g. Swap with Pane to the Right"
               ),
-        "<nth> tab":
-            R(Key("c-%(nth)s")),
+        "tab <m>":
+            R(Key("a-%(m)s")),
+        "pin tab":
+            R(Key("c-k, s-enter")),
+        "close all tabs":
+            R(Key("c-k, w")),
 
         # Languages Editing
         "go to definition":
@@ -317,16 +321,8 @@ class VSCodeNonCcrRule(MappingRule):
         IntegerRefST("ln1", 1, 1000),
         IntegerRefST("ln2", 1, 1000),
         IntegerRefST("n", 1, 1000),
+        IntegerRefST("m", 1, 10),
         Choice("action", navigation.actions),
-        Choice(
-            "nth", {
-                "first": "1",
-                "second": "2",
-                "third": "3",
-                "fourth": "4",
-                "fifth": "5",
-                "sixth": "6",
-            }),
     ]
     defaults = {"n": 1, "ln2": "",  "mim": "", "text": ""}
 
