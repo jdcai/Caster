@@ -37,7 +37,7 @@ class VSCodeNonCcrRule(MappingRule):
         # Display
         # note that most of these can be turned on/off with the same command
         "[toggle] full screen":
-            R(Key("sa-enter")),
+            R(Key("f11")),
         "toggle orientation":
             R(Key("sa-0")),
         "zoom in [<n>]":
@@ -76,9 +76,11 @@ class VSCodeNonCcrRule(MappingRule):
         "copy path":
             R(Key("c-k, p")),
         "[open] command palette [<text>]":
-            R(Key("cs-p") + Text("%(text)s"), rdescript="VS Code: Command Palette"),
+            R(Key("cs-p") + Text("%(text)s"),
+              rdescript="VS Code: Command Palette"),
         "(open file | go to [tab]) [<text>]":
-            R(Key("c-p") + Text("%(text)s"), rdescript="VS Code: Go to File without using dialogbox"),
+            R(Key("c-p") + Text("%(text)s"),
+              rdescript="VS Code: Go to File without using dialogbox"),
         "open project [<text>]":
             R(Key("c-r") + Pause("30") + Text("%(text)s")),
         "open dialogue":
@@ -113,7 +115,7 @@ class VSCodeNonCcrRule(MappingRule):
             R(Key("cs-t") * Repeat(extra='n')),
         "Exit preview":
             R(Key("space, c-z")),
-        "keep preview open":
+        "keep [preview] open":
             R(Key("c-k, enter")),
         "windows explorer here":
             R(Key("c-k, r")),
@@ -165,10 +167,10 @@ class VSCodeNonCcrRule(MappingRule):
             R(Key("c-k, c-left")),
         "move tab left":
             R(Key("ca-left"),
-            rdescript="VS Code: Move the current tab to the editor pane on the left."),
+              rdescript="VS Code: Move the current tab to the editor pane on the left."),
         "move tab right":
             R(Key("ca-right"),
-            rdescript="VS Code: Move the current tab to the editor pane on the right."),
+              rdescript="VS Code: Move the current tab to the editor pane on the right."),
         "shift group left":
             R(Key("c-k, left"),
               rdescript="VS Code: Shift Current Group of Tabs to the Left E.g. Swap with Pane to the Left"),
@@ -188,8 +190,10 @@ class VSCodeNonCcrRule(MappingRule):
             R(Key("a-f12")),
         "trigger parameter hints":
             R(Key("cs-space")),
-        "format that":
+        "format (that | selection)":
             R(Key("c-k, c-f")),
+        "format (doc | document)":
+            R(Key("sa-f")),
         "(definition to side | side def)":
             R(Key("c-k, f12")),
         "show references":
@@ -271,7 +275,7 @@ class VSCodeNonCcrRule(MappingRule):
         "run this line":
             R(Key("csa-l")),
         "join line":
-            R(Key("csa-j")),
+            R(Key("f1") + Text("join lines") + Key("enter")),
 
         # requires gitlens extension
         "toggle blame":
@@ -290,8 +294,8 @@ class VSCodeNonCcrRule(MappingRule):
             R(Key("ca-j")),
         "mark next":
             R(Key("ca-l")),
-            
-        #npm
+
+        # npm
         "npm":
             R(Text("npm")),
         "run install":
@@ -300,9 +304,9 @@ class VSCodeNonCcrRule(MappingRule):
             R(Text("npm run review")),
         "run start":
             R(Text("npm start")),
-        "run test":
+        "run no code test":
             R(Text("ng test --codeCoverage=false")),
-        "run code test":
+        "run test":
             R(Text("npm test")),
         "run debug test":
             R(Text("npm run test:debug")),
