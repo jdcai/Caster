@@ -76,9 +76,11 @@ class VSCodeNonCcrRule(MappingRule):
         "copy path":
             R(Key("c-k, p")),
         "[open] command palette [<text>]":
-            R(Key("cs-p") + Text("%(text)s"), rdescript="VS Code: Command Palette"),
+            R(Key("cs-p") + Text("%(text)s"),
+              rdescript="VS Code: Command Palette"),
         "(open file | go to [tab]) [<text>]":
-            R(Key("c-p") + Text("%(text)s"), rdescript="VS Code: Go to File without using dialogbox"),
+            R(Key("c-p") + Text("%(text)s"),
+              rdescript="VS Code: Go to File without using dialogbox"),
         "open project [<text>]":
             R(Key("c-r") + Pause("30") + Text("%(text)s")),
         "open dialogue":
@@ -165,10 +167,10 @@ class VSCodeNonCcrRule(MappingRule):
             R(Key("c-k, c-left")),
         "move tab left":
             R(Key("ca-left"),
-            rdescript="VS Code: Move the current tab to the editor pane on the left."),
+              rdescript="VS Code: Move the current tab to the editor pane on the left."),
         "move tab right":
             R(Key("ca-right"),
-            rdescript="VS Code: Move the current tab to the editor pane on the right."),
+              rdescript="VS Code: Move the current tab to the editor pane on the right."),
         "shift group left":
             R(Key("c-k, left"),
               rdescript="VS Code: Shift Current Group of Tabs to the Left E.g. Swap with Pane to the Left"),
@@ -176,8 +178,12 @@ class VSCodeNonCcrRule(MappingRule):
             R(Key("c-k, right"),
               rdescript="VS Code: Shift Current Group of Tabs to the Right E.g. Swap with Pane to the Right"
               ),
-        "<nth> tab":
-            R(Key("c-%(nth)s")),
+        "tab <m>":
+            R(Key("a-%(m)s")),
+        "pin tab":
+            R(Key("c-k, s-enter")),
+        "close all tabs":
+            R(Key("c-k, w")),
 
         # Languages Editing
         "go to definition":
@@ -292,8 +298,8 @@ class VSCodeNonCcrRule(MappingRule):
             R(Key("ca-j")),
         "mark next":
             R(Key("ca-l")),
-            
-        #npm
+
+        # npm
         "npm":
             R(Text("npm")),
         "run install":
@@ -317,16 +323,8 @@ class VSCodeNonCcrRule(MappingRule):
         IntegerRefST("ln1", 1, 1000),
         IntegerRefST("ln2", 1, 1000),
         IntegerRefST("n", 1, 1000),
+        IntegerRefST("m", 1, 10),
         Choice("action", navigation.actions),
-        Choice(
-            "nth", {
-                "first": "1",
-                "second": "2",
-                "third": "3",
-                "fourth": "4",
-                "fifth": "5",
-                "sixth": "6",
-            }),
     ]
     defaults = {"n": 1, "ln2": "",  "mim": "", "text": ""}
 
