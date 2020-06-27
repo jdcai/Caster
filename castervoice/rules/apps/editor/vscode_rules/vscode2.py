@@ -76,9 +76,11 @@ class VSCodeNonCcrRule(MappingRule):
         "copy path":
             R(Key("c-k, p")),
         "[open] command palette [<text>]":
-            R(Key("cs-p") + Text("%(text)s"), rdescript="VS Code: Command Palette"),
+            R(Key("cs-p") + Text("%(text)s"),
+              rdescript="VS Code: Command Palette"),
         "(open file | go to [tab]) [<text>]":
-            R(Key("c-p") + Text("%(text)s"), rdescript="VS Code: Go to File without using dialogbox"),
+            R(Key("c-p") + Text("%(text)s"),
+              rdescript="VS Code: Go to File without using dialogbox"),
         "open project [<text>]":
             R(Key("c-r") + Pause("30") + Text("%(text)s")),
         "open dialogue":
@@ -165,10 +167,10 @@ class VSCodeNonCcrRule(MappingRule):
             R(Key("c-k, c-left")),
         "move tab left":
             R(Key("ca-left"),
-            rdescript="VS Code: Move the current tab to the editor pane on the left."),
+              rdescript="VS Code: Move the current tab to the editor pane on the left."),
         "move tab right":
             R(Key("ca-right"),
-            rdescript="VS Code: Move the current tab to the editor pane on the right."),
+              rdescript="VS Code: Move the current tab to the editor pane on the right."),
         "shift group left":
             R(Key("c-k, left"),
               rdescript="VS Code: Shift Current Group of Tabs to the Left E.g. Swap with Pane to the Left"),
@@ -296,8 +298,8 @@ class VSCodeNonCcrRule(MappingRule):
             R(Key("ca-j")),
         "mark next":
             R(Key("ca-l")),
-            
-        #npm
+
+        # npm
         "npm":
             R(Text("npm")),
         "run install":
