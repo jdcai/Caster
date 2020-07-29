@@ -50,8 +50,8 @@ class ContextSeeker(RegisteredAction):
         self.reverse = reverse  # indicates that context levels on backward seekers should be satisfied in reverse order
         assert self.back is not None or self.forward is not None, "Cannot create ContextSeeker with no levels"
 
-    # def _execute(self, data=None):
-        # self.nexus().state.add(StackItemSeeker(self, data))
+    def _execute(self, data=None):
+        self.nexus().state.add(StackItemSeeker(self, data))
 
 
 class AsynchronousAction(ContextSeeker):
@@ -89,7 +89,7 @@ class AsynchronousAction(ContextSeeker):
                 self.time_in_seconds = float(data["time_in_seconds"])
             if "repetitions" in data: self.time_in_seconds = int(data["repetitions"])
 
-        # self.nexus().state.add(StackItemAsynchronous(self, data))
+        self.nexus().state.add(StackItemAsynchronous(self, data))
 
     @staticmethod
     def hmc_complete(data_function):
