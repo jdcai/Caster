@@ -98,7 +98,7 @@ class VSCodeCcrRule(MergeRule):
         "(unindent|out dent) [<n>]":
             R(Key("c-["), rdescript="VS Code: Unindent"),
         "hard delete [<n>]":
-            R(Key("s-del"), rdescript="VS Code: Eliminates Line not Just the Text on it"),
+            R(Key("cs-k"), rdescript="VS Code: Eliminates Line not Just the Text on it"),
         "copy line up [<n>]":
             R(Key("sa-up")*Repeat(extra='n'), rdescript="VS Code: Duplicate Line Above"),
         "copy line down [<n>]":

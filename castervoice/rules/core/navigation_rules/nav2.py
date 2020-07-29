@@ -63,11 +63,11 @@ class NavigationNon(MappingRule):
         "garb [<nnavi500>]":
             R(Mouse("left") + Mouse("left") + Function(
                 navigation.stoosh_keep_clipboard)),
-        "drop [<nnavi500>]":
-            R(Mouse("left") + Mouse("left") + Function(
-                navigation.drop_keep_clipboard,
-                capitalization=0,
-                spacing=0)),
+        # "drop [<nnavi500>]":
+        #     R(Mouse("left") + Mouse("left") + Function(
+        #         navigation.drop_keep_clipboard,
+        #         capitalization=0,
+        #         spacing=0)),
         "sure stoosh":
             R(Key("c-c")),
         "sure cut":
