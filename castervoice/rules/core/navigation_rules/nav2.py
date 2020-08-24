@@ -41,8 +41,8 @@ class NavigationNon(MappingRule):
             R(Key("f%(function_key)s")),
         "[show] context menu":
             R(Key("s-f10")),
-        #"lean":
-        #    R(Function(navigation.right_down)),
+        "lean":
+            R(Function(navigation.right_down)),
         "hoist":
             R(Function(navigation.right_up)),
         "kick mid":

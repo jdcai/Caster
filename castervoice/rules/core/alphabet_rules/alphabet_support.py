@@ -10,7 +10,7 @@ def caster_alphabet():
         "char"    : "c",
         "delta"   : "d",
         "echo"    : "e",
-        "foxtrot"    : "f",
+        "foxy"    : "f",
         "gust"    : "g",
         "hotel"   : "h",
         "India"   : "i",
