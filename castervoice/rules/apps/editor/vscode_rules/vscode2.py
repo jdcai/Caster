@@ -316,6 +316,44 @@ class VSCodeNonCcrRule(MappingRule):
             R(Text("npm run test:debug")),
         "max panel":
             R(Key("ca-a")),
+        # extensions
+        # expand region
+        "expend region [<n>]":
+            R(Key("ca-w") * Repeat(extra='n')),
+        "undo expend region [<n>]":
+            R(Key("csa-w") * Repeat(extra='n')),
+
+        # jumpy
+        "jump word":
+            R(Key("s-enter")),        
+
+        # meta
+        "select line down [<n>]":
+            R(Key("c-l") * Repeat(extra='n')), 
+        "select line up [<n>]":
+            R(Key("c-o") * Repeat(extra='n')),  
+        "swap cursor":
+            R(Key("a-a")),
+        "bookmark":
+            R(Key("a-'")),
+        "back bookmark":
+            R(Key("a-[")),
+        "next bookmark":
+            R(Key("a-]")),
+        "list bookmark":
+            R(Key("a-\\")),  
+        "select between":
+            R(Key("as-p")),  
+        "select between pairs":
+            R(Key("ac-p")),  
+        "move up blank [<n>]":
+            R(Key("a-home") * Repeat(extra='n')),
+        "move down blank [<n>]":
+            R(Key("a-end")* Repeat(extra='n')),
+        "select up blank [<n>]":
+            R(Key("as-home") * Repeat(extra='n')),
+        "select down blank [<n>]":
+            R(Key("as-end")* Repeat(extra='n')),
     }
     extras = [
         Dictation("text"),
