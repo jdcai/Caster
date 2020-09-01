@@ -140,6 +140,8 @@ class Navigation(MergeRule):
         "dredge [<nnavi10>]":
             R(Key("alt:down, tab/20:%(nnavi10)d, alt:up"),
               rdescript="Core: switch to most recent Windows"),
+        "center mouse": 
+            R(Mouse("(0.5, 0.5)")),
 
         # Ccr Mouse Commands
         "kick [<nnavi3>]":

@@ -10,9 +10,9 @@ class MouseAlternativesRule(MappingRule):
         "legion [<monitor>] [<rough>]":
             R(Function(navigation.mouse_alternates, mode="legion") +
                 Function(utilities.focus_mousegrid, gridtitle="legiongrid")),
-        "rainbow [<monitor>]":
-            R(Function(navigation.mouse_alternates, mode="rainbow") +
-                Function(utilities.focus_mousegrid, gridtitle="rainbowgrid")),
+        # "rainbow [<monitor>]":
+        #     R(Function(navigation.mouse_alternates, mode="rainbow") +
+        #         Function(utilities.focus_mousegrid, gridtitle="rainbowgrid")),
         "douglas [<monitor>]":
             R(Function(navigation.mouse_alternates, mode="douglas") +
                 Function(utilities.focus_mousegrid, gridtitle="douglasgrid")),

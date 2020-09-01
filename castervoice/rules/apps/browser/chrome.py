@@ -148,7 +148,7 @@ class ChromeRule(MappingRule):
 		"back comment":
 			R(Key("s-k")),
 		"top comment":
-			R(Key("t"))
+			R(Key("t")),
 		# "bat <m> delta [<d>] [plus] [<n3>]":
 			# R(Text("/r %(m)sd%(d)s+%(n3)s") + Key("enter")),
 		# "bat [<d>] [plus] [<n3>]":
@@ -156,6 +156,24 @@ class ChromeRule(MappingRule):
 		# "shield":
 			# R(Text("/r 2d6") + Key("enter")),
 		
+
+        # Vimium
+        "move tab left":
+            R(Key("~")),
+        "move tab left all":
+            R(Key("!")),
+        "move tab right":
+            R(Key("@")),
+        "move tab right all":
+            R(Key("#")),
+        "open bookmark":
+            R(Key("*")),
+        "open tab":
+            R(Key("$")),
+        "recent tab":
+            R(Key("^")),
+        "pin tab":
+            R(Key("&")),
     }
     extras = [
         Dictation("text"),

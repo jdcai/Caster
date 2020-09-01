@@ -5,32 +5,32 @@ from castervoice.lib.actions import Key, Text
 
 def caster_alphabet():
     return {
-        "arch"    : "a",
-        "brov"    : "b",
-        "char"    : "c",
-        "delta"   : "d",
-        "echo"    : "e",
-        "foxy"    : "f",
-        "gust"    : "g",
-        "hotel"   : "h",
-        "India"   : "i",
-        "julia"   : "j",
-        "kilo"    : "k",
-        "look"    : "l",
-        "Mike"    : "m",
-        "near": "n",
-        "oscar"   : "o",
-        "prime"   : "p",
-        "quench"  : "q",
-        "Romeo"   : "r",
-        "Sierra"  : "s",
-        "tango"   : "t",
-        "uniform" : "u",
-        "victor"  : "v",
-        "whiskey" : "w",
-        "x-ray"   : "x",
-        "yankee"  : "y",
-        "Zulu"    : "z",
+        "air" : "a",
+         "bat" : "b",
+         "cap" : "c",
+         "drum" : "d",
+         "each" : "e",
+         "fine" : "f",
+         "gust" : "g",
+         "harp" : "h",
+         "sit" : "i",
+         "jury" : "j",
+         "crunch" : "k",
+         "look" : "l",
+         "made" : "m",
+         "near" : "n",
+         "odd" : "o",
+         "pit" : "p",
+         "quench" : "q",
+         "red" : "r",
+         "sun" : "s",
+         "trap" : "t",
+         "urge" : "u",
+         "vest" : "v",
+         "whale" : "w",
+         "plex" : "x",
+         "yank" : "y",
+         "zip" : "z",
     }
 
 
@@ -58,7 +58,7 @@ def letters2(big, letter):
         Key(letter.capitalize()).execute()
     else:
         Key(letter  + ":down/10," + letter + ":up").execute()
-
+said
 
 '''for fun'''
 

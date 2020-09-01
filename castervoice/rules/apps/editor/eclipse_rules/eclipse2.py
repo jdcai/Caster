@@ -74,6 +74,15 @@ class EclipseRule(MappingRule):
             R(Key("c-f") + Function(ec_con.find)),
         "find <punctuation> [<back>] [<go>]":
             R(Key("c-f") + Function(ec_con.find)),
+
+        "menu spy":
+            R(Key("as-f2")),
+        "selection spy":
+            R(Key("as-f1")),
+        "go back":
+            R(Key("a-left")),
+        "go forward":
+            R(Key("a-right")),
     }
     extras = [
         Dictation("text"),
