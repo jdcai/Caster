@@ -130,7 +130,25 @@ class ChromeRule(MappingRule):
         "step into":
             R(Key("f11")),
         "step out":
-            R(Key("s-f11"))
+            R(Key("s-f11")),
+
+        # Vimium
+        "move tab left":
+            R(Key("~")),
+        "move tab left all":
+            R(Key("!")),
+        "move tab right":
+            R(Key("@")),
+        "move tab right all":
+            R(Key("#")),
+        "open bookmark":
+            R(Key("*")),
+        "open tab":
+            R(Key("$")),
+        "recent tab":
+            R(Key("^")),
+        "pin tab":
+            R(Key("&")),
     }
     extras = [
         Dictation("text"),
