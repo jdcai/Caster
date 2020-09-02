@@ -58,7 +58,7 @@ def letters2(big, letter):
         Key(letter.capitalize()).execute()
     else:
         Key(letter  + ":down/10," + letter + ":up").execute()
-said
+
 
 '''for fun'''
 
