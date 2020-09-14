@@ -41,8 +41,8 @@ class NavigationNon(MappingRule):
             R(Key("f%(function_key)s")),
         "[show] context menu":
             R(Key("s-f10")),
-        "lean":
-            R(Function(navigation.right_down)),
+        # "lean":
+            # R(Function(navigation.right_down)),
         "hoist":
             R(Function(navigation.right_up)),
         "kick mid":
@@ -104,6 +104,8 @@ class NavigationNon(MappingRule):
 			R(Function(navigation.middle_click) + Mouse("<0, 25>")),
 		"auto up":
 			R(Function(navigation.middle_click) + Mouse("<0, -25>")),
+        "web toon":
+			R(Function(navigation.middle_click) + Mouse("<0, 55>")),
 		"mouse down":
 			Mouse("<0, 10>"),
 		"mouse up":
