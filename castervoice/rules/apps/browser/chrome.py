@@ -158,6 +158,20 @@ class ChromeRule(MappingRule):
 		
 
         # Vimium
+        # Insert your preferred key mappings here.
+        # unmapAll
+        # map \ LinkHints.activateModeToOpenInNewTab
+        # map / LinkHints.activateMode
+        # map s scrollPageUp
+        # map d scrollPageDown
+        # map ~ moveTabLeft
+        # map @ moveTabRight
+        # map ! moveTabLeft count=99
+        # map # moveTabRight count=99
+        # map $ Vomnibar.activateTabSelection
+        # map * Vomnibar.activateBookmarksInNewTab
+        # map ^ visitPreviousTab
+        # map & togglePinTab
         "move tab left":
             R(Key("~")),
         "move tab left all":
