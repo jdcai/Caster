@@ -308,12 +308,16 @@ class VSCodeNonCcrRule(MappingRule):
             R(Text("npm run review")),
         "run start":
             R(Text("npm start")),
+        "run build":
+            R(Text("npm run build")),
         "run no code test":
             R(Text("ng test --codeCoverage=false")),
         "run test":
             R(Text("npm test")),
         "run debug test":
             R(Text("npm run test:debug")),
+        "yarn start":
+            R(Text("yarn start")),
         "max panel":
             R(Key("ca-a")),
         # extensions
