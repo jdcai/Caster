@@ -120,6 +120,7 @@ def main():
 
     # Set any configuration options here as keyword arguments.
     engine = get_engine("kaldi",
+		audio_auto_reconnect=False,
         model_dir='./kaldi_model',
         tmp_dir='kaldi_model.tmp',  # default for temporary directory
         # vad_aggressiveness=3,  # default aggressiveness of VAD
