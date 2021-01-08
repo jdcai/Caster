@@ -108,6 +108,10 @@ class NavigationNon(MappingRule):
 			Mouse("<0, 10>"),
 		"mouse up":
 			Mouse("<0, -10>"),
+        "anki":
+        Mouse("[2236, 1331]")
+        #Mouse("[3523, 962]"),
+        
     }
 
     extras = [

@@ -162,9 +162,7 @@ class ChromeRule(MappingRule):
         "recent tab":
             R(Key("^")),
         "pin tab":
-            R(Key("&")),
-        "anki":
-        Mouse("[3523, 962]")
+            R(Key("&"))
     }
     extras = [
         Dictation("text"),
