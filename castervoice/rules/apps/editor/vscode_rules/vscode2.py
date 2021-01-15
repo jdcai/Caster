@@ -316,8 +316,12 @@ class VSCodeNonCcrRule(MappingRule):
             R(Text("npm test")),
         "run debug test":
             R(Text("npm run test:debug")),
+        "yarn":
+            R(Text("yarn")),
         "yarn start":
             R(Text("yarn start")),
+        "yarn build":
+            R(Text("yarn build")),
         "max panel":
             R(Key("ca-a")),
         # extensions
