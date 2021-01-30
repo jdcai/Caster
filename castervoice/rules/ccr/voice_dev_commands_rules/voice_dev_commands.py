@@ -106,7 +106,7 @@ class VoiceDevCommands(MergeRule):
               rdescript="DragonflyDev: Snippet for the Choice Extra"),
         "dev mouse [<mouse_button>]":
             R(Function(type_mouse), rdescript="DragonflyDev: Snippet for Mouse Click Command"),
-        "dev mouse current [position]":
+        "mouse current [position]":
             R(Function(type_mouse_current),
               rdescript="DragonflyDev: Snippet for Making a Command for Clicking at the Current Cursor Position"),
         "dev execute": R(Key("end")+Text(".execute()"),

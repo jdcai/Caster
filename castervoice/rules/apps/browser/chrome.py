@@ -187,7 +187,7 @@ class ChromeRule(MappingRule):
         "recent tab":
             R(Key("^")),
         "pin tab":
-            R(Key("&")),
+            R(Key("&"))
     }
     extras = [
         Dictation("text"),

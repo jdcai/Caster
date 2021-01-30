@@ -1,6 +1,6 @@
 name: Caster Lint/Unit Tests
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   python-windows-2-7:
@@ -20,6 +20,7 @@ jobs:
               choco install vcpython27
               python -m pip install --upgrade pip
               pip install --upgrade setuptools
+              pip install wheel
               pip install -U -r requirements-dev.txt
           - name: Lint with pylint
             run: |
@@ -45,6 +46,7 @@ jobs:
             run: |
               python -m pip install --upgrade pip
               pip install --upgrade setuptools
+              pip install wheel
               pip install -U -r requirements-dev.txt
           - name: Lint with pylint
             run: |
@@ -68,10 +70,12 @@ jobs:
               python-version: ${{ matrix.python-version }}
           - name: Install dependencies
             run: |
+              sudo apt-get update
               sudo apt-get install libgtk-3-dev
               sudo apt-get install python3-tk
               python -m pip install --upgrade pip
               pip install --upgrade setuptools
+              pip install wheel
               python -m pip install -U https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-20.04/wxPython-4.1.1-cp38-cp38-linux_x86_64.whl
               pip install -U -r requirements-mac-linux.txt
           - name: Lint with pylint
@@ -98,6 +102,7 @@ jobs:
             run: |
               python -m pip install --upgrade pip
               pip install --upgrade setuptools
+              pip install wheel
               pip install -U -r requirements-mac-linux.txt
           - name: Lint with pylint
             run: |
